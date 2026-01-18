@@ -128,3 +128,39 @@ The analysis provides results in the following format:
 - [ ] Export analysis reports as PDF
 
 ---
+
+# Resume Analyzer Groq - .gitignore
+
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Groq specific
+groq_api_key
+groq_model
