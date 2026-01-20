@@ -134,47 +134,9 @@ The analysis provides results in the following format:
 - Try with a smaller PDF file first
 
 ## 📝 Future Enhancements
-
-- [ ] Support for multiple file formats (DOCX, TXT)
 - [ ] Resume template suggestions
 - [ ] Skill gap analysis with learning resources
 - [ ] Integration with RAG (Retrieval-Augmented Generation) for more        accurate skill extraction.
 - [ ] Export analysis reports as PDF
 
----
-
-# Resume Analyzer Groq - .gitignore
-
-# Python
-*.py[cod]
-__pycache__/
-*.so
-*.egg
-*.egg-info/
-dist/
-build/
-
-# Virtual Environment
-venv/
-ENV/
-env/
-.env
-
-# IDEs and Editors
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# macOS
-.DS_Store
-
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# Groq specific
-groq_api_key
-groq_model
+Thank You
