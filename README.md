@@ -4,7 +4,7 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
 
 ## ✨ Features
 
-- 📄 **PDF Resume Upload** - Easily upload your resume in PDF format
+- 📄 **Multi-Format Resume Upload** - Upload resumes in PDF, DOCX, or TXT format
 - 🔍 **Job Description Analysis** - Paste the job description you're targeting
 - 🎯 **Smart Matching** - AI-powered analysis using Groq's Llama 3.3 70B model
 - 📊 **Detailed Report** - Get insights including:
@@ -17,7 +17,8 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
 - **Frontend**: [Streamlit](https://streamlit.io/) - Modern Python web framework
 - **LLM**: [Groq API](https://groq.com/) - Fast inference with Llama 3.3 70B
 - **PDF Processing**: PyPDF2
-- **Environment**: Python 3.x
+- **Document Processing**: python-docx (for DOCX files)
+- **Environment**: Python 3.8+
 
 ## 📋 Requirements
 
@@ -25,7 +26,8 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
 - All dependencies listed in `requirements.txt`:
   - groq
   - python-dotenv
-  - streamlit
+  - stream
+  - python-docxlit
   - PyPDF2
 
 ## 🚀 Installation
@@ -34,8 +36,9 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
    ```bash
    cd Resume_Analyzer_Groq
    ```
-
-2. **Create and activate a virtual environment** (already set up):
+:
+   ```bash
+   python -m venv resume_venve and activate a virtual environment** (already set up):
    ```bash
    .\resume_venv\Scripts\Activate.ps1
    ```
@@ -51,22 +54,17 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
    ```bash
    .\resume_venv\Scripts\Activate.ps1
    ```
-
-2. **Navigate to the app directory**:
-   ```bash
-   cd resume_venv
-   ```
-
-3. **Run the Streamlit app**:
+Run the Streamlit app**:
    ```bash
    streamlit run app.py
    ```
 
-4. **Open in browser**:
+3. **Open in browser**:
    - The app will automatically open at `http://localhost:8501`
 
-5. **Use the analyzer**:
+4. **Use the analyzer**:
    - Paste the job description in the text area
+   - Upload your resume (PDF, DOCX, or TXTon in the text area
    - Upload your resume (PDF format)
    - Click "Analyze Match" to get your analysis report
 
@@ -79,14 +77,26 @@ Resume_Analyzer_Groq/
 ├── resume_venv/             # Virtual environment
 │   ├── app.py               # Main Streamlit application
 │   ├── Scripts/             # Activation scripts
-│   └── Lib/                 # Python packages
-└── .env                     # Environment variables (not tracked)
-```
+│   app.py                    # Main Streamlit application
+├── README.md                 # This file
+├── requirements.txt          # Python dependencies
+├── .gitignore                # Git ignore rules
+├── .env.example              # Environment variables template
+├── .env                      # Environment variables (local, not tracked)
+├── LICENSE                   # MIT License
+├── CONTRIBUTING.md           # Contribution guidelines
+└── resume_venv/              # Virtual environment (not committed)
+    ├── Scripts/              # Activation scripts
+    └── Lib/                  # Python packagesconfigured in `app.py` (in production, use environment variables).
+securely stored in `.env` file (never commit this file).
 
-## 🔑 Configuration
-
-The application uses the Groq API for AI analysis. The API key is configured in `app.py` (in production, use environment variables).
-
+### Setup API Key
+1. Get your Groq API key from [https://console.groq.com/keys](https://console.groq.com/keys)
+2. Create a `.env` file in the project root (copy from `.env.example`):
+   ```bash
+   GROQ_API_KEY=your_api_key_here
+   ```
+3. Never commit `.env` - it's excluded by `.gitignore`
 ### Model Used
 - **Model**: Llama 3.3 70B Versatile
 - **Temperature**: 0.5 (balanced between creativity and consistency)
@@ -103,19 +113,23 @@ The analysis provides results in the following format:
 
 ## 💡 Tips for Best Results
 
-- Use a well-formatted, detailed resume
-- Include specific keywords from the job description
-- Ensure your resume highlights relevant projects and experience
+- UsFile Upload Issues
+- **PDF**: Ensure the file is readable and not corrupted
+- **DOCX**: Verify it's a valid Microsoft Word document
+- **TXT**: Make sure it's encoded in UTF-8
+- Try with a smaller file first if upload failsevant projects and experience
 - Use the feedback to iteratively improve your resume
 
 ## 🐛 Troubleshooting
 
 ### API Issues
-- Verify your Groq API key is valid
-- Check internet connection
-- Ensure API rate limits haven't been exceeded
-
-### PDF Upload Issues
+- Vx] Support for multiple file formats (DOCX, TXT) ✅ Completed!
+- [ ] Resume template suggestions
+- [ ] Skill gap analysis with learning resources
+- [ ] Batch processing multiple resumes
+- [ ] Integration with RAG (Retrieval-Augmented Generation) for accurate skill extraction
+- [ ] Export analysis reports as PDF
+- [ ] Resume scoring history and comparison
 - Ensure the PDF is readable and not corrupted
 - Try with a smaller PDF file first
 
