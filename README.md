@@ -26,9 +26,9 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
 - All dependencies listed in `requirements.txt`:
   - groq
   - python-dotenv
-  - stream
-  - python-docxlit
+  - streamlit
   - PyPDF2
+  - python-docx
 
 ## 🚀 Installation
 
@@ -36,10 +36,10 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
    ```bash
    cd Resume_Analyzer_Groq
    ```
-:
+
+2. **Create and activate a virtual environment**:
    ```bash
-   python -m venv resume_venve and activate a virtual environment** (already set up):
-   ```bash
+   python -m venv resume_venv
    .\resume_venv\Scripts\Activate.ps1
    ```
 
@@ -54,7 +54,8 @@ An intelligent resume analysis tool that uses AI to match your resume against jo
    ```bash
    .\resume_venv\Scripts\Activate.ps1
    ```
-Run the Streamlit app**:
+
+2. **Run the Streamlit app**:
    ```bash
    streamlit run app.py
    ```
@@ -64,20 +65,14 @@ Run the Streamlit app**:
 
 4. **Use the analyzer**:
    - Paste the job description in the text area
-   - Upload your resume (PDF, DOCX, or TXTon in the text area
-   - Upload your resume (PDF format)
+   - Upload your resume (PDF, DOCX, or TXT format)
    - Click "Analyze Match" to get your analysis report
 
 ## 📁 Project Structure
 
 ```
 Resume_Analyzer_Groq/
-├── README.md                 # This file
-├── requirements.txt          # Python dependencies
-├── resume_venv/             # Virtual environment
-│   ├── app.py               # Main Streamlit application
-│   ├── Scripts/             # Activation scripts
-│   app.py                    # Main Streamlit application
+├── app.py                    # Main Streamlit application
 ├── README.md                 # This file
 ├── requirements.txt          # Python dependencies
 ├── .gitignore                # Git ignore rules
@@ -87,17 +82,24 @@ Resume_Analyzer_Groq/
 ├── CONTRIBUTING.md           # Contribution guidelines
 └── resume_venv/              # Virtual environment (not committed)
     ├── Scripts/              # Activation scripts
-    └── Lib/                  # Python packagesconfigured in `app.py` (in production, use environment variables).
-securely stored in `.env` file (never commit this file).
+    └── Lib/                  # Python packages
+```
+
+## 🔑 Configuration
+
+The application uses the Groq API for AI analysis. The API key is securely stored in `.env` file (never commit this file).
 
 ### Setup API Key
+
 1. Get your Groq API key from [https://console.groq.com/keys](https://console.groq.com/keys)
 2. Create a `.env` file in the project root (copy from `.env.example`):
    ```bash
    GROQ_API_KEY=your_api_key_here
    ```
 3. Never commit `.env` - it's excluded by `.gitignore`
+
 ### Model Used
+
 - **Model**: Llama 3.3 70B Versatile
 - **Temperature**: 0.5 (balanced between creativity and consistency)
 
@@ -113,68 +115,60 @@ The analysis provides results in the following format:
 
 ## 💡 Tips for Best Results
 
-- UsFile Upload Issues
-- **PDF**: Ensure the file is readable and not corrupted
-- **DOCX**: Verify it's a valid Microsoft Word document
-- **TXT**: Make sure it's encoded in UTF-8
-- Try with a smaller file first if upload failsevant projects and experience
+- Use a well-formatted, detailed resume
+- Include specific keywords from the job description
+- Ensure your resume highlights relevant projects and experience
 - Use the feedback to iteratively improve your resume
 
 ## 🐛 Troubleshooting
 
 ### API Issues
-- Vx] Support for multiple file formats (DOCX, TXT) ✅ Completed!
+- Verify your Groq API key is valid
+- Check internet connection
+- Ensure API rate limits haven't been exceeded
+
+### File Upload Issues
+- **PDF**: Ensure the file is readable and not corrupted
+- **DOCX**: Verify it's a valid Microsoft Word document
+- **TXT**: Make sure it's encoded in UTF-8
+- Try with a smaller file first if upload fails
+
+## 📝 Future Enhancements
+
+- [x] Support for multiple file formats (DOCX, TXT) ✅ Completed!
 - [ ] Resume template suggestions
 - [ ] Skill gap analysis with learning resources
 - [ ] Batch processing multiple resumes
 - [ ] Integration with RAG (Retrieval-Augmented Generation) for accurate skill extraction
 - [ ] Export analysis reports as PDF
 - [ ] Resume scoring history and comparison
-- Ensure the PDF is readable and not corrupted
-- Try with a smaller PDF file first
 
-## 📝 Future Enhancements
+## 🤝 Contributing
 
-- [ ] Support for multiple file formats (DOCX, TXT)
-- [ ] Resume template suggestions
-- [ ] Skill gap analysis with learning resources
-- [ ] Integration with RAG (Retrieval-Augmented Generation) for more        accurate skill extraction.
-- [ ] Export analysis reports as PDF
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
----
+## 📄 License
 
-# Resume Analyzer Groq - .gitignore
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# Python
-*.py[cod]
-__pycache__/
-*.so
-*.egg
-*.egg-info/
-dist/
-build/
+## 🚀 Quick Start
 
-# Virtual Environment
-venv/
-ENV/
-env/
-.env
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/GenAI.git
+cd GenAI
 
-# IDEs and Editors
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
+# Set up environment
+python -m venv resume_venv
+.\resume_venv\Scripts\Activate.ps1
 
-# macOS
-.DS_Store
+# Install dependencies
+pip install -r requirements.txt
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+# Set up API key
+echo GROQ_API_KEY=your_key_here > .env
 
-# Groq specific
-groq_api_key
-groq_model
+# Run the app
+streamlit run app.py
+```
+
