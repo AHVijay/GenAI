@@ -143,6 +143,7 @@ The analysis provides results in the following format:
 - [ ] Export analysis reports as PDF
 - [ ] Resume scoring history and comparison
 
+<<<<<<< HEAD
 ## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
@@ -172,3 +173,12 @@ echo GROQ_API_KEY=your_key_here > .env
 streamlit run app.py
 ```
 
+=======
+## 📝 Future Enhancements
+- [ ] Resume template suggestions
+- [ ] Skill gap analysis with learning resources
+- [ ] Integration with RAG (Retrieval-Augmented Generation) for more        accurate skill extraction.
+- [ ] Export analysis reports as PDF
+
+Thank You
+>>>>>>> a85fca13b891bd8be7bc2d712d78d38f793c7023
